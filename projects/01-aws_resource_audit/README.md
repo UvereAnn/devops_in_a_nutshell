@@ -218,9 +218,8 @@ tail -f aws_resource_audit.log
 5. Update documentation
 6. Submit a pull request
 
-## ⚠️ No License (All Rights Reserved)
-This project currently has no explicit license. All rights are reserved by the author.
-Contact the author for permissions regarding use, modification, or distribution.
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👥 Authors
 Ivuaku Annastassia - Initial implementation and ongoing maintenance
