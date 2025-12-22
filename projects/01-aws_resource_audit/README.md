@@ -13,43 +13,27 @@ A comprehensive AWS resource auditing and cost management system that provides a
 - Comprehensive Logging: Detailed execution logs for debugging
 
 ## 📁 Project Structure
+```tree
 01-aws_resource_audit/
-├── README.md                             # This documentation file
-├── run_tests.sh                          # Test execution script
-├── aws_resource_audit.log                # Execution logs (gitignored)
-├── .gitignore                            # Git ignore rules
-├── LICENSE                               # MIT License file
+├── README.md                    # This documentation file
+├── run_tests.sh                # Test execution script
+├── aws_resource_audit.log      # Execution logs (gitignored)
+├── .gitignore                 # Git ignore rules
+├── LICENSE                    # MIT License file
 ├── config/
-│   ├── config.env                        # Configuration file (gitignored)
-│   └── config.env.example                # Configuration template
+│   ├── config.env             # Configuration file (gitignored)
+│   └── config.env.example     # Configuration template
 ├── scripts/
-│   └── aws_resource_list.sh              # Main audit script
+│   └── aws_resource_list.sh   # Main audit script
 ├── tests/
-│   └── test_aws_resource_list.bats       # BATS test suite
-├── screenshots/                          # Proof of working features and project diagrams
+│   └── test_aws_resource_list.bats # BATS test suite
+├── screenshots/               # Proof of working features and project diagrams
 │   ├── Component_Interaction_Diagram.png
 │   ├── Process_Flowchart.png
 │   ├── System_Architecture_Overview.png
 │   └── System_Architecture_Diagram.png
-└── reports/                              # Generated reports are gitignored
-
-## 📊 Visual Documentation
-
-### System Architecture
-![System Architecture](screenshots/System_Architecture_Diagram.png)
-*Complete system architecture showing all components*
-
-### Process Flow
-![Process Flowchart](screenshots/Process_Flowchart.png)
-*Step-by-step workflow of the audit process*
-
-### Component Interaction
-![Component Interaction](screenshots/Component_Interaction_Diagram.png)
-*How different system components interact*
-
-### Architecture Overview
-![Architecture Overview](screenshots/System_Architecture_Overview.png)
-*High-level overview of the system design*
+└── reports/                   # Generated reports (gitignored)
+```
 
 ## 🚀 Quick Start
 Prerequisites
@@ -76,46 +60,48 @@ Edit config/config.env with your settings:
 AWS_REGION=us-east-1
 
 ### Email Configuration
-EMAIL_ENABLED=true
-EMAIL_TO="your-email@example.com"
-EMAIL_FROM="your-email@example.com"
-EMAIL_SUBJECT="AWS Resource Audit Report"
+- EMAIL_ENABLED=true
+- EMAIL_TO="your-email@example.com"
+- EMAIL_FROM="your-email@example.com"
+- EMAIL_SUBJECT="AWS Resource Audit Report"
 
 ### SMTP Configuration
-SMTP_SERVER="smtp.gmail.com"
-SMTP_PORT="587"
-SMTP_USER="your-email@gmail.com"
-SMTP_PASSWORD="your-app-password"
+- SMTP_SERVER="smtp.gmail.com"
+- SMTP_PORT="587"
+- SMTP_USER="your-email@gmail.com"
+- SMTP_PASSWORD="your-app-password"
 
 ### Slack Configuration
 SLACK_WEBHOOK_URL=""
 
 ### Cost Estimation Tags
-COST_TAG_KEY="Environment"
-COST_TAG_VALUE="Production"
+- COST_TAG_KEY="Environment"
+- COST_TAG_VALUE="Production"
 
 ## IAM Permissions
 Create an IAM policy with the following permissions:
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:DescribeInstances",
-                "ec2:DescribeRegions",
-                "ec2:DescribeVolumes",
-                "s3:ListAllMyBuckets",
-                "lambda:ListFunctions",
-                "rds:DescribeDBInstances",
-                "ce:GetCostAndUsage",
-                "sts:GetCallerIdentity"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
 
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeRegions",
+        "ec2:DescribeVolumes",
+        "s3:ListAllMyBuckets",
+        "lambda:ListFunctions",
+        "rds:DescribeDBInstances",
+        "ce:GetCostAndUsage",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
 ## 📖 Usage
 ### Basic Commands
 1. Single region, multiple services:
@@ -161,10 +147,10 @@ This will:
 ## 📊 Output
 The tool generates reports in the reports/ directory with timestamped filenames:
 
-aws_audit_YYYYMMDD_HHMMSS_detailed.json - Complete audit data
-aws_audit_YYYYMMDD_HHMMSS_summary.json - Aggregated summary with costs
-aws_audit_YYYYMMDD_HHMMSS_summary.csv - Tabular format for analysis
-aws_audit_YYYYMMDD_HHMMSS_summary.txt - Human-readable executive summary
+- aws_audit_YYYYMMDD_HHMMSS_detailed.json - Complete audit data
+- aws_audit_YYYYMMDD_HHMMSS_summary.json - Aggregated summary with costs
+- aws_audit_YYYYMMDD_HHMMSS_summary.csv - Tabular format for analysis
+- aws_audit_YYYYMMDD_HHMMSS_summary.txt - Human-readable executive summary
 
 Note: The reports/ directory is gitignored and should not be committed to version control.
 
@@ -203,10 +189,10 @@ brew install jq awscli
 - Check if "Less secure apps" is enabled (if not using app passwords)
 
 ## Debug Mode
-Run with verbose output:
+###  Run with verbose output:
 ./scripts/aws_resource_list.sh us-east-1 ec2 --verbose --no-notify --no-cost
 
-Check logs:
+### Check logs:
 tail -f aws_resource_audit.log
 
 ## Git Management
