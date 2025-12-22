@@ -1,0 +1,50 @@
+# Secrets & config & environment files
+config/config.env
+secrets/
+credentials.json
+token.pickle
+*.pem
+*.key
+*.env
+!config/config.env.example
+config.env
+!*.env.example 
+
+# Logs
+*.log
+aws_resource_audit.log
+
+# Generated reports
+reports/
+!reports/.gitkeep 
+*.csv
+*.json
+
+# AWS credentials (extra safety)
+**/.aws/
+
+# Test artifacts
+tests/bats-core/
+test-results/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Shell history / temp files
+*.swp
+*.tmp
+*.temp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Screenshots - keep all images in screenshots folder
+*.png
+!screenshots/*.png
+*.jpg
+*.jpeg
+*.gif
